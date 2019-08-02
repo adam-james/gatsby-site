@@ -1,16 +1,13 @@
-import axios from "axios"
+import { RSAA } from "redux-api-middleware"
 
-const fetchPeople = () => axios.get("https://swapi.co/api/people")
-
-export const LOAD_PEOPLE_SUCCESS = "LOAD_PEOPLE_SUCCESS"
-
-const loadPeopleSuccess = people => ({
-  type: LOAD_PEOPLE_SUCCESS,
-  people,
+export const loadPeople = () => ({
+  [RSAA]: {
+    endpoint: "https://swapi.co/api/people",
+    method: "GET",
+    types: [
+      "LOAD_PEOPLE_REQUEST",
+      "LOAD_PEOPLE_SUCCESS",
+      "LOAD_PEOPLE_FAILURE",
+    ],
+  },
 })
-
-export const loadPeople = () => async dispatch => {
-  const resp = await fetchPeople()
-  const { results: people } = resp.data
-  dispatch(loadPeopleSuccess(people))
-}
