@@ -2,12 +2,11 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import StarWars from "../components/star-wars"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <StarWars />
+    <h1>Just a demo.</h1>
   </Layout>
 )
 

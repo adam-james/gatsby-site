@@ -1,5 +1,8 @@
 import { RSAA } from "redux-api-middleware"
 
+// TODO redux-api-middleware breaks build
+// TODO this also breaks in Firefox
+
 export const loadPeople = () => ({
   [RSAA]: {
     endpoint: "https://swapi.co/api/people",
